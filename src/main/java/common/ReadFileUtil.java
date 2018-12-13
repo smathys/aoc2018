@@ -12,13 +12,26 @@ import java.util.stream.Stream;
 
 public class ReadFileUtil {
 
-    public List<Integer> readFile(String fileName) {
+    public List<Integer> readFileAsInts(String fileName) {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
 
         try (Stream<String> stream = Files.lines(Paths.get(file.getAbsolutePath()))) {
             Stream<Integer> integerStream = stream.map(Integer::parseInt);
             return integerStream.collect(Collectors.toList());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+
+    public List<String> readFileAsStrings(String fileName) {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
+
+        try (Stream<String> stream = Files.lines(Paths.get(file.getAbsolutePath()))) {
+            return stream.collect(Collectors.toList());
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -27,5 +27,7 @@ public class Device {
     private int change(int currentFrequency, int change) {
         return currentFrequency + change;
     }
+
+
 }
 

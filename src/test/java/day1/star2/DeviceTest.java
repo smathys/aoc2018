@@ -48,7 +48,7 @@ class DeviceTest {
 
     @Test
     void test_full_success() {
-        List<Integer> inputAsList = util.readFile("I_day1.txt");
+        List<Integer> inputAsList = util.readFileAsInts("I_day1.txt");
         int result = device.findFirstFrequencyReachedTwice(inputAsList.toArray(new Integer[0]));
         System.out.println(result);
     }
