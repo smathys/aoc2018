@@ -3,7 +3,7 @@ package day1.star2;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Device {
+class Device {
 
 
     Integer findFirstFrequencyReachedTwice(Integer... changes) {

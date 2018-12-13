@@ -10,8 +10,8 @@ class Device {
 
     long scanIds(List<String> ids) {
 
-        long sum2OfAnyLetter = 0;
-        long sum3OfAnyLetter = 0;
+        long sum2OfAnyLetter;
+        long sum3OfAnyLetter;
 
         Stream<Tuple> tupleStream = ids.stream().map(this::countFor);
         List<Tuple> copyList = tupleStream.collect(Collectors.toList());

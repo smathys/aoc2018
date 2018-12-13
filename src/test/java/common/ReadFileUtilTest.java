@@ -22,7 +22,7 @@ class ReadFileUtilTest {
     }
 
     @Test
-    void test_readFileAsStingss_success() {
+    void test_readFileAsStings_success() {
         assertTrue(util.readFileAsStrings("I_day2.txt").size() > 0);
     }
 }
