@@ -31,7 +31,7 @@ class DeviceTest {
     }
 
     @Test
-    void test_transformFoundedString_success() {
+    void test_getIdWithSameCharacters_success() {
         String transformFoundedString = device.getIdWithSameCharacters(BOX_ID_2, 2);
         assertEquals(EXPECTED, transformFoundedString);
         transformFoundedString = device.getIdWithSameCharacters(BOX_ID_5, 2);

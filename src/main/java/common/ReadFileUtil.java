@@ -13,8 +13,7 @@ import java.util.stream.Stream;
 public class ReadFileUtil {
 
     public List<Integer> readFileAsInts(String fileName) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
+        File file = getFile(fileName);
 
         try (Stream<String> stream = Files.lines(Paths.get(file.getAbsolutePath()))) {
             Stream<Integer> integerStream = stream.map(Integer::parseInt);
@@ -22,20 +21,25 @@ public class ReadFileUtil {
 
         } catch (IOException e) {
             e.printStackTrace();
+            return Collections.emptyList();
         }
-        return Collections.emptyList();
+    }
+
+    private File getFile(String fileName) {
+        ClassLoader classLoader = getClass().getClassLoader();
+        return new File(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
     }
 
     public List<String> readFileAsStrings(String fileName) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
+        File file = getFile(fileName);
 
         try (Stream<String> stream = Files.lines(Paths.get(file.getAbsolutePath()))) {
             return stream.collect(Collectors.toList());
 
         } catch (IOException e) {
             e.printStackTrace();
+            return Collections.emptyList();
         }
-        return Collections.emptyList();
     }
+
 }

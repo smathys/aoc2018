@@ -18,11 +18,20 @@ class ReadFileUtilTest {
 
     @Test
     void test_readFileAsInts_success() {
+
         assertTrue(util.readFileAsInts("I_day1.txt").size() > 0);
     }
 
     @Test
     void test_readFileAsStings_success() {
+
         assertTrue(util.readFileAsStrings("I_day2.txt").size() > 0);
     }
+
+    @Test
+    void test_readFileAsStings2_success() {
+
+        assertTrue(util.readFileAsStrings("I_day3.txt").size() > 0);
+    }
+
 }
