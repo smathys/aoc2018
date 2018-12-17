@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static day3.star1.FabricManager.EMPTY_SLOT;
-import static day3.star1.FabricManager.MULTIPLE_SLOT;
+import static day3.star1.Puzzle.EMPTY_SLOT;
+import static day3.star1.Puzzle.MULTIPLE_SLOT;
 import static org.junit.jupiter.api.Assertions.*;
 
-class FabricManagerTest {
+class PuzzleTest {
 
-    private FabricManager manager;
+    private Puzzle puzzle;
     private ReadFileUtil util;
     private static String[][] expectedEmpty = new String[8][8];
     private static String[][] expectedSample1 = new String[8][8];
@@ -412,19 +412,19 @@ class FabricManagerTest {
     @BeforeEach
     void setUp() {
         util = new ReadFileUtil();
-        manager = new FabricManager(8, 8);
+        puzzle = new Puzzle(8, 8);
     }
 
     @Test
     void test_readClaims_success() {
         List<String> strings = util.readFileAsStrings("I_day3.txt");
-        List<Claim> claims = FabricManager.getClaims(strings);
+        List<Claim> claims = puzzle.getClaims(strings);
         assertFalse(claims.isEmpty());
     }
 
     @Test
     void test_getClamis_sample1_success() {
-        List<Claim> claims = FabricManager.getClaims(SAMPLE_INPUT);
+        List<Claim> claims = puzzle.getClaims(SAMPLE_INPUT);
         assertEquals(3, claims.size());
 
         assertEquals(1, claims.get(0).claimId);
@@ -448,67 +448,60 @@ class FabricManagerTest {
     }
 
     @Test
-    void test_placeClaims_sucess() {
-        List<Claim> claims = FabricManager.getClaims(SAMPLE_INPUT);
-        manager.placeClaims(claims);
-    }
-
-    @Test
     void test_initFabric_success() {
-        String[][] fabric = manager.initFabric(8, 8);
-        manager.print(fabric);
+        String[][] fabric = puzzle.initFabric(8, 8);
+        puzzle.print(fabric);
         assertTrue(Arrays.deepEquals(expectedEmpty, fabric));
     }
 
     @Test
     void test_placeClaim_sample1_success() {
-        String[][] fabric = manager.initFabric(8, 8);
-        fabric = manager.placeClaim(fabric, new Claim(1, 1, 3, 4, 4));
+        String[][] fabric = puzzle.initFabric(8, 8);
+        fabric = puzzle.placeClaim(fabric, new Claim(1, 1, 3, 4, 4));
 
-        manager.print(fabric);
+        puzzle.print(fabric);
         assertTrue(Arrays.deepEquals(expectedSample1, fabric));
 
     }
 
     @Test
     void test_placeClaim_sample2_success() {
-        String[][] fabric = manager.initFabric(8, 8);
-        fabric = manager.placeClaim(fabric, new Claim(2, 3, 1, 4, 4));
+        String[][] fabric = puzzle.initFabric(8, 8);
+        fabric = puzzle.placeClaim(fabric, new Claim(2, 3, 1, 4, 4));
 
-        manager.print(fabric);
+        puzzle.print(fabric);
         assertTrue(Arrays.deepEquals(expectedSample2, fabric));
 
     }
 
     @Test
     void test_placeClaims_sample3_success() {
-        String[][] fabric = manager.initFabric(8, 8);
-        fabric = manager.placeClaim(fabric, new Claim(3, 5, 5, 2, 2));
+        String[][] fabric = puzzle.initFabric(8, 8);
+        fabric = puzzle.placeClaim(fabric, new Claim(3, 5, 5, 2, 2));
 
-        manager.print(fabric);
+        puzzle.print(fabric);
         assertTrue(Arrays.deepEquals(expectedSample3, fabric));
 
     }
 
     @Test
     void test_placeClaim_success() {
-        List<Claim> claims = FabricManager.getClaims(SAMPLE_INPUT);
-        String[][] fabric = manager.placeClaims(claims);
+        List<Claim> claims = puzzle.getClaims(SAMPLE_INPUT);
+        String[][] fabric = puzzle.placeClaims(claims);
 
-        manager.print(fabric);
+        puzzle.print(fabric);
         assertTrue(Arrays.deepEquals(expectedMulti, fabric));
     }
 
     @Test
     void test_full_success() {
-        manager = new FabricManager(1000, 1000);
+        puzzle = new Puzzle(1000, 1000);
         List<String> strings = util.readFileAsStrings("I_day3.txt");
-        List<Claim> claims = FabricManager.getClaims(strings);
-        String[][] fabric = manager.placeClaims(claims);
+        List<Claim> claims = puzzle.getClaims(strings);
+        String[][] fabric = puzzle.placeClaims(claims);
 
-        int count = manager.countMultiSlots(fabric);
+        int count = puzzle.countMultiSlots(fabric);
         System.out.println(count);
-        System.out.println(manager.getNotOverlappingId());
 
     }
 }

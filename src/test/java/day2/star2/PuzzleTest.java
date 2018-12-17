@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DeviceTest {
+class PuzzleTest {
 
     private static final String BOX_ID_1 = "abcde";
     private static final String BOX_ID_2 = "fghij";
@@ -21,20 +21,20 @@ class DeviceTest {
 
     private static final String EXPECTED = "fgij";
 
-    private Device device;
+    private Puzzle puzzle;
     private ReadFileUtil util;
 
     @BeforeEach
     void setUp() {
-        device = new Device();
+        puzzle = new Puzzle();
         util = new ReadFileUtil();
     }
 
     @Test
     void test_getIdWithSameCharacters_success() {
-        String transformFoundedString = device.getIdWithSameCharacters(BOX_ID_2, 2);
+        String transformFoundedString = puzzle.getIdWithSameCharacters(BOX_ID_2, 2);
         assertEquals(EXPECTED, transformFoundedString);
-        transformFoundedString = device.getIdWithSameCharacters(BOX_ID_5, 2);
+        transformFoundedString = puzzle.getIdWithSameCharacters(BOX_ID_5, 2);
         assertEquals(EXPECTED, transformFoundedString);
     }
 
@@ -45,14 +45,14 @@ class DeviceTest {
                 BOX_ID_4, BOX_ID_5, BOX_ID_6,
                 BOX_ID_7
         );
-        String correctBoxes = device.findCorrectBoxes(inputAsList);
+        String correctBoxes = puzzle.findCorrectBoxes(inputAsList);
         assertEquals("fgij", correctBoxes);
     }
 
     @Test
     void test_full_success() {
         List<String> inputAsList = util.readFileAsStrings("I_day2.txt");
-        String correctBoxes = device.findCorrectBoxes(inputAsList);
+        String correctBoxes = puzzle.findCorrectBoxes(inputAsList);
         System.out.println(correctBoxes);
     }
 }

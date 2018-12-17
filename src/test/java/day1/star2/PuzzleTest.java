@@ -9,47 +9,47 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-class DeviceTest {
+class PuzzleTest {
 
-    private Device device;
+    private Puzzle puzzle;
     private ReadFileUtil util;
 
 
     @BeforeEach
     void setUp() {
-        device = new Device();
+        puzzle = new Puzzle();
         util = new ReadFileUtil();
     }
 
 
     @Test
     void test_find_sample2_success() {
-        int reachedTwice = device.findFirstFrequencyReachedTwice(+3, +3, +4, -2, -4);
+        int reachedTwice = puzzle.findFirstFrequencyReachedTwice(+3, +3, +4, -2, -4);
         assertEquals(10, reachedTwice);
     }
 
     @Test
     void test_find_sample3_success() {
-        int reachedTwice = device.findFirstFrequencyReachedTwice(-6, +3, +8, +5, -6);
+        int reachedTwice = puzzle.findFirstFrequencyReachedTwice(-6, +3, +8, +5, -6);
         System.out.println(reachedTwice);
     }
 
     @Test
     void test_find_sample4_success() {
-        int reachedTwice = device.findFirstFrequencyReachedTwice(+7, +7, -2, -7, -4);
+        int reachedTwice = puzzle.findFirstFrequencyReachedTwice(+7, +7, -2, -7, -4);
         assertEquals(14, reachedTwice);
     }
 
     @Test
     void test_find_sample1_success() {
-        int reachedTwice = device.findFirstFrequencyReachedTwice(+1, -1);
+        int reachedTwice = puzzle.findFirstFrequencyReachedTwice(+1, -1);
         assertEquals(0, reachedTwice);
     }
 
     @Test
     void test_full_success() {
         List<Integer> inputAsList = util.readFileAsInts("I_day1.txt");
-        int result = device.findFirstFrequencyReachedTwice(inputAsList.toArray(new Integer[0]));
+        int result = puzzle.findFirstFrequencyReachedTwice(inputAsList.toArray(new Integer[0]));
         System.out.println(result);
     }
 }

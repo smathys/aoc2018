@@ -52,4 +52,3 @@ What is the ID of the only claim that doesn't overlap?
 
 Although it hasn't changed, you can still get your puzzle input.
 
-Answer:

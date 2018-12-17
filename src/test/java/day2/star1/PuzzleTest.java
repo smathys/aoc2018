@@ -9,27 +9,27 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DeviceTest {
+class PuzzleTest {
 
-    private Device device;
+    private Puzzle puzzle;
     private ReadFileUtil util;
 
     @BeforeEach
     void setUp() {
-        device = new Device();
+        puzzle = new Puzzle();
         util = new ReadFileUtil();
     }
 
     @Test
     void test_sample1_success() {
-        Tuple tuple = device.countFor("abcdef");
+        Tuple tuple = puzzle.countFor("abcdef");
         assertFalse(tuple.twoOfAnyLetter);
         assertFalse(tuple.treeOfAnyLetter);
     }
 
     @Test
     void test_sample2_success() {
-        Tuple tuple = device.countFor("bababc");
+        Tuple tuple = puzzle.countFor("bababc");
 
         assertTrue(tuple.twoOfAnyLetter);
         assertTrue(tuple.treeOfAnyLetter);
@@ -37,35 +37,35 @@ class DeviceTest {
 
     @Test
     void test_sample3_success() {
-        Tuple tuple = device.countFor("abbcde");
+        Tuple tuple = puzzle.countFor("abbcde");
         assertTrue(tuple.twoOfAnyLetter);
         assertFalse(tuple.treeOfAnyLetter);
     }
 
     @Test
     void test_sample4_success() {
-        Tuple tuple = device.countFor("abcccd");
+        Tuple tuple = puzzle.countFor("abcccd");
         assertFalse(tuple.twoOfAnyLetter);
         assertTrue(tuple.treeOfAnyLetter);
     }
 
     @Test
     void test_sample5_success() {
-        Tuple tuple = device.countFor("aabcdd");
+        Tuple tuple = puzzle.countFor("aabcdd");
         assertTrue(tuple.twoOfAnyLetter);
         assertFalse(tuple.treeOfAnyLetter);
     }
 
     @Test
     void test_sample6_success() {
-        Tuple tuple = device.countFor("abcdee");
+        Tuple tuple = puzzle.countFor("abcdee");
         assertTrue(tuple.twoOfAnyLetter);
         assertFalse(tuple.treeOfAnyLetter);
     }
 
     @Test
     void test_sample7_success() {
-        Tuple tuple = device.countFor("ababab");
+        Tuple tuple = puzzle.countFor("ababab");
         assertFalse(tuple.twoOfAnyLetter);
         assertTrue(tuple.treeOfAnyLetter);
     }
@@ -77,7 +77,7 @@ class DeviceTest {
                 "abcdef", "bababc", "abbcde", "abcccd",
                 "aabcdd", "abcdee", "ababab"
         );
-        long checksum = device.scanIds(inputAsList);
+        long checksum = puzzle.scanIds(inputAsList);
         assertEquals(12, checksum);
         System.out.println(checksum);
     }
@@ -85,7 +85,7 @@ class DeviceTest {
     @Test
     void test_full_success() {
         List<String> inputAsList = util.readFileAsStrings("I_day2.txt");
-        long checksum = device.scanIds(inputAsList);
+        long checksum = puzzle.scanIds(inputAsList);
         System.out.println(checksum);
     }
 }

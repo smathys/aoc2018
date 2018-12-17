@@ -9,61 +9,61 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-class DeviceTest {
+class PuzzleTest {
 
-    private Device device;
+    private Puzzle puzzle;
     private ReadFileUtil util;
 
 
     @BeforeEach
     void setUp() {
-        device = new Device();
+        puzzle = new Puzzle();
         util = new ReadFileUtil();
     }
 
     @Test
     void test_sample1_success() {
-        assertEquals(1, device.change(0, +1));
+        assertEquals(1, puzzle.change(0, +1));
     }
 
     @Test
     void test_sample2_success() {
-        assertEquals(-1, device.change(1, -2));
+        assertEquals(-1, puzzle.change(1, -2));
     }
 
     @Test
     void test_sample3_success() {
-        assertEquals(2, device.change(-1, +3));
+        assertEquals(2, puzzle.change(-1, +3));
     }
 
     @Test
     void test_sample4_success() {
-        assertEquals(3, device.change(2, +1));
+        assertEquals(3, puzzle.change(2, +1));
     }
 
     @Test
     void test_multiChanges_success() {
         int startFrequency = 0;
-        int result = device.change(startFrequency, +1);
+        int result = puzzle.change(startFrequency, +1);
         assertEquals(1, result);
-        int change = device.change(result, -2);
+        int change = puzzle.change(result, -2);
         assertEquals(-1, change);
-        result = device.change(change, +3);
+        result = puzzle.change(change, +3);
         assertEquals(2, result);
-        change = device.change(result, +1);
+        change = puzzle.change(result, +1);
         assertEquals(3, change);
     }
 
     @Test
     void test_listOfChanges_success() {
-        assertEquals(3, device.change(1, -2, 3, 1));
+        assertEquals(3, puzzle.change(1, -2, 3, 1));
     }
 
 
     @Test
     void test_full_success() {
         List<Integer> inputAsList = util.readFileAsInts("I_day1.txt");
-        int result = device.change(inputAsList.toArray(new Integer[0]));
+        int result = puzzle.change(inputAsList.toArray(new Integer[0]));
         System.out.println(result);
     }
 }
