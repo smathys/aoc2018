@@ -1,6 +1,7 @@
-package day3;
+package day3.star1;
 
 import common.ReadFileUtil;
+import day3.Claim;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static day3.FabricManager.*;
+import static day3.star1.FabricManager.EMPTY_SLOT;
+import static day3.star1.FabricManager.MULTIPLE_SLOT;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FabricManagerTest {
@@ -139,37 +141,37 @@ class FabricManagerTest {
         expectedSample1[2][7] = EMPTY_SLOT;
 
         expectedSample1[3][0] = EMPTY_SLOT;
-        expectedSample1[3][1] = SINGLE_SLOT;
-        expectedSample1[3][2] = SINGLE_SLOT;
-        expectedSample1[3][3] = SINGLE_SLOT;
-        expectedSample1[3][4] = SINGLE_SLOT;
+        expectedSample1[3][1] = "1";
+        expectedSample1[3][2] = "1";
+        expectedSample1[3][3] = "1";
+        expectedSample1[3][4] = "1";
         expectedSample1[3][5] = EMPTY_SLOT;
         expectedSample1[3][6] = EMPTY_SLOT;
         expectedSample1[3][7] = EMPTY_SLOT;
 
         expectedSample1[4][0] = EMPTY_SLOT;
-        expectedSample1[4][1] = SINGLE_SLOT;
-        expectedSample1[4][2] = SINGLE_SLOT;
-        expectedSample1[4][3] = SINGLE_SLOT;
-        expectedSample1[4][4] = SINGLE_SLOT;
+        expectedSample1[4][1] = "1";
+        expectedSample1[4][2] = "1";
+        expectedSample1[4][3] = "1";
+        expectedSample1[4][4] = "1";
         expectedSample1[4][5] = EMPTY_SLOT;
         expectedSample1[4][6] = EMPTY_SLOT;
         expectedSample1[4][7] = EMPTY_SLOT;
 
         expectedSample1[5][0] = EMPTY_SLOT;
-        expectedSample1[5][1] = SINGLE_SLOT;
-        expectedSample1[5][2] = SINGLE_SLOT;
-        expectedSample1[5][3] = SINGLE_SLOT;
-        expectedSample1[5][4] = SINGLE_SLOT;
+        expectedSample1[5][1] = "1";
+        expectedSample1[5][2] = "1";
+        expectedSample1[5][3] = "1";
+        expectedSample1[5][4] = "1";
         expectedSample1[5][5] = EMPTY_SLOT;
         expectedSample1[5][6] = EMPTY_SLOT;
         expectedSample1[5][7] = EMPTY_SLOT;
 
         expectedSample1[6][0] = EMPTY_SLOT;
-        expectedSample1[6][1] = SINGLE_SLOT;
-        expectedSample1[6][2] = SINGLE_SLOT;
-        expectedSample1[6][3] = SINGLE_SLOT;
-        expectedSample1[6][4] = SINGLE_SLOT;
+        expectedSample1[6][1] = "1";
+        expectedSample1[6][2] = "1";
+        expectedSample1[6][3] = "1";
+        expectedSample1[6][4] = "1";
         expectedSample1[6][5] = EMPTY_SLOT;
         expectedSample1[6][6] = EMPTY_SLOT;
         expectedSample1[6][7] = EMPTY_SLOT;
@@ -197,37 +199,37 @@ class FabricManagerTest {
         expectedSample2[1][0] = EMPTY_SLOT;
         expectedSample2[1][1] = EMPTY_SLOT;
         expectedSample2[1][2] = EMPTY_SLOT;
-        expectedSample2[1][3] = SINGLE_SLOT;
-        expectedSample2[1][4] = SINGLE_SLOT;
-        expectedSample2[1][5] = SINGLE_SLOT;
-        expectedSample2[1][6] = SINGLE_SLOT;
+        expectedSample2[1][3] = "2";
+        expectedSample2[1][4] = "2";
+        expectedSample2[1][5] = "2";
+        expectedSample2[1][6] = "2";
         expectedSample2[1][7] = EMPTY_SLOT;
 
         expectedSample2[2][0] = EMPTY_SLOT;
         expectedSample2[2][1] = EMPTY_SLOT;
         expectedSample2[2][2] = EMPTY_SLOT;
-        expectedSample2[2][3] = SINGLE_SLOT;
-        expectedSample2[2][4] = SINGLE_SLOT;
-        expectedSample2[2][5] = SINGLE_SLOT;
-        expectedSample2[2][6] = SINGLE_SLOT;
+        expectedSample2[2][3] = "2";
+        expectedSample2[2][4] = "2";
+        expectedSample2[2][5] = "2";
+        expectedSample2[2][6] = "2";
         expectedSample2[2][7] = EMPTY_SLOT;
 
         expectedSample2[3][0] = EMPTY_SLOT;
         expectedSample2[3][1] = EMPTY_SLOT;
         expectedSample2[3][2] = EMPTY_SLOT;
-        expectedSample2[3][3] = SINGLE_SLOT;
-        expectedSample2[3][4] = SINGLE_SLOT;
-        expectedSample2[3][5] = SINGLE_SLOT;
-        expectedSample2[3][6] = SINGLE_SLOT;
+        expectedSample2[3][3] = "2";
+        expectedSample2[3][4] = "2";
+        expectedSample2[3][5] = "2";
+        expectedSample2[3][6] = "2";
         expectedSample2[3][7] = EMPTY_SLOT;
 
         expectedSample2[4][0] = EMPTY_SLOT;
         expectedSample2[4][1] = EMPTY_SLOT;
         expectedSample2[4][2] = EMPTY_SLOT;
-        expectedSample2[4][3] = SINGLE_SLOT;
-        expectedSample2[4][4] = SINGLE_SLOT;
-        expectedSample2[4][5] = SINGLE_SLOT;
-        expectedSample2[4][6] = SINGLE_SLOT;
+        expectedSample2[4][3] = "2";
+        expectedSample2[4][4] = "2";
+        expectedSample2[4][5] = "2";
+        expectedSample2[4][6] = "2";
         expectedSample2[4][7] = EMPTY_SLOT;
 
         expectedSample2[5][0] = EMPTY_SLOT;
@@ -309,8 +311,8 @@ class FabricManagerTest {
         expectedSample3[5][2] = EMPTY_SLOT;
         expectedSample3[5][3] = EMPTY_SLOT;
         expectedSample3[5][4] = EMPTY_SLOT;
-        expectedSample3[5][5] = SINGLE_SLOT;
-        expectedSample3[5][6] = SINGLE_SLOT;
+        expectedSample3[5][5] = "3";
+        expectedSample3[5][6] = "3";
         expectedSample3[5][7] = EMPTY_SLOT;
 
         expectedSample3[6][0] = EMPTY_SLOT;
@@ -318,8 +320,8 @@ class FabricManagerTest {
         expectedSample3[6][2] = EMPTY_SLOT;
         expectedSample3[6][3] = EMPTY_SLOT;
         expectedSample3[6][4] = EMPTY_SLOT;
-        expectedSample3[6][5] = SINGLE_SLOT;
-        expectedSample3[6][6] = SINGLE_SLOT;
+        expectedSample3[6][5] = "3";
+        expectedSample3[6][6] = "3";
         expectedSample3[6][7] = EMPTY_SLOT;
 
         expectedSample3[7][0] = EMPTY_SLOT;
@@ -345,55 +347,55 @@ class FabricManagerTest {
         expectedMulti[1][0] = EMPTY_SLOT;
         expectedMulti[1][1] = EMPTY_SLOT;
         expectedMulti[1][2] = EMPTY_SLOT;
-        expectedMulti[1][3] = SINGLE_SLOT;
-        expectedMulti[1][4] = SINGLE_SLOT;
-        expectedMulti[1][5] = SINGLE_SLOT;
-        expectedMulti[1][6] = SINGLE_SLOT;
+        expectedMulti[1][3] = "2";
+        expectedMulti[1][4] = "2";
+        expectedMulti[1][5] = "2";
+        expectedMulti[1][6] = "2";
         expectedMulti[1][7] = EMPTY_SLOT;
 
         expectedMulti[2][0] = EMPTY_SLOT;
         expectedMulti[2][1] = EMPTY_SLOT;
         expectedMulti[2][2] = EMPTY_SLOT;
-        expectedMulti[2][3] = SINGLE_SLOT;
-        expectedMulti[2][4] = SINGLE_SLOT;
-        expectedMulti[2][5] = SINGLE_SLOT;
-        expectedMulti[2][6] = SINGLE_SLOT;
+        expectedMulti[2][3] = "2";
+        expectedMulti[2][4] = "2";
+        expectedMulti[2][5] = "2";
+        expectedMulti[2][6] = "2";
         expectedMulti[2][7] = EMPTY_SLOT;
 
         expectedMulti[3][0] = EMPTY_SLOT;
-        expectedMulti[3][1] = SINGLE_SLOT;
-        expectedMulti[3][2] = SINGLE_SLOT;
+        expectedMulti[3][1] = "1";
+        expectedMulti[3][2] = "1";
         expectedMulti[3][3] = MULTIPLE_SLOT;
         expectedMulti[3][4] = MULTIPLE_SLOT;
-        expectedMulti[3][5] = SINGLE_SLOT;
-        expectedMulti[3][6] = SINGLE_SLOT;
+        expectedMulti[3][5] = "2";
+        expectedMulti[3][6] = "2";
         expectedMulti[3][7] = EMPTY_SLOT;
 
         expectedMulti[4][0] = EMPTY_SLOT;
-        expectedMulti[4][1] = SINGLE_SLOT;
-        expectedMulti[4][2] = SINGLE_SLOT;
+        expectedMulti[4][1] = "1";
+        expectedMulti[4][2] = "1";
         expectedMulti[4][3] = MULTIPLE_SLOT;
         expectedMulti[4][4] = MULTIPLE_SLOT;
-        expectedMulti[4][5] = SINGLE_SLOT;
-        expectedMulti[4][6] = SINGLE_SLOT;
+        expectedMulti[4][5] = "2";
+        expectedMulti[4][6] = "2";
         expectedMulti[4][7] = EMPTY_SLOT;
 
         expectedMulti[5][0] = EMPTY_SLOT;
-        expectedMulti[5][1] = SINGLE_SLOT;
-        expectedMulti[5][2] = SINGLE_SLOT;
-        expectedMulti[5][3] = SINGLE_SLOT;
-        expectedMulti[5][4] = SINGLE_SLOT;
-        expectedMulti[5][5] = SINGLE_SLOT;
-        expectedMulti[5][6] = SINGLE_SLOT;
+        expectedMulti[5][1] = "1";
+        expectedMulti[5][2] = "1";
+        expectedMulti[5][3] = "1";
+        expectedMulti[5][4] = "1";
+        expectedMulti[5][5] = "3";
+        expectedMulti[5][6] = "3";
         expectedMulti[5][7] = EMPTY_SLOT;
 
         expectedMulti[6][0] = EMPTY_SLOT;
-        expectedMulti[6][1] = SINGLE_SLOT;
-        expectedMulti[6][2] = SINGLE_SLOT;
-        expectedMulti[6][3] = SINGLE_SLOT;
-        expectedMulti[6][4] = SINGLE_SLOT;
-        expectedMulti[6][5] = SINGLE_SLOT;
-        expectedMulti[6][6] = SINGLE_SLOT;
+        expectedMulti[6][1] = "1";
+        expectedMulti[6][2] = "1";
+        expectedMulti[6][3] = "1";
+        expectedMulti[6][4] = "1";
+        expectedMulti[6][5] = "3";
+        expectedMulti[6][6] = "3";
         expectedMulti[6][7] = EMPTY_SLOT;
 
         expectedMulti[7][0] = EMPTY_SLOT;
@@ -506,6 +508,7 @@ class FabricManagerTest {
 
         int count = manager.countMultiSlots(fabric);
         System.out.println(count);
+        System.out.println(manager.getNotOverlappingId());
 
     }
 }

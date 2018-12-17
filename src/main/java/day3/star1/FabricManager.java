@@ -1,4 +1,6 @@
-package day3;
+package day3.star1;
+
+import day3.Claim;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,8 +15,9 @@ class FabricManager {
     private static final String SEPARATOR_4 = "x";
 
     static final String EMPTY_SLOT = ".";
-    static final String SINGLE_SLOT = "#";
     static final String MULTIPLE_SLOT = "X";
+
+    private int notOverlappingId;
 
 
     private String[][] fabric;
@@ -32,15 +35,19 @@ class FabricManager {
     }
 
     String[][] placeClaim(String[][] fabric, Claim claim) {
+        boolean hasOverlaps = false;
+
         String[][] result = new String[fabric.length][fabric.length];
         for (int x = 0; x < fabric.length; x++) {
             for (int y = 0; y < fabric[x].length; y++) {
                 if (x >= (claim.topPos) && x <= (claim.topPos + claim.height - 1)) {
                     if (y >= (claim.leftPos) && y <= (claim.leftPos + claim.width - 1)) {
-                        if (fabric[x][y].equals(SINGLE_SLOT) || fabric[x][y].equals(MULTIPLE_SLOT)) {
+                        if (!fabric[x][y].equals(EMPTY_SLOT)) {
                             result[x][y] = MULTIPLE_SLOT;
+                            hasOverlaps = true;
+
                         } else {
-                            result[x][y] = SINGLE_SLOT;
+                            result[x][y] = "" + claim.claimId;
                         }
                     } else {
                         result[x][y] = fabric[x][y];
@@ -49,6 +56,11 @@ class FabricManager {
                     result[x][y] = fabric[x][y];
                 }
             }
+        }
+
+        if (!hasOverlaps) {
+            notOverlappingId = claim.claimId;
+            System.out.println(claim.claimId);
         }
 
         return result;
@@ -65,6 +77,10 @@ class FabricManager {
 
         }
         return count;
+    }
+
+    int getNotOverlappingId() {
+        return notOverlappingId;
     }
 
     void print(String[][] fabric) {
